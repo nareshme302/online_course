@@ -26,4 +26,4 @@ def lesson_details(request, course_id, lesson_id):
 def course_membership(request,m_id):
     memberships = Membership.objects.get(id=m_id)
     membership_courses= memberships.course_set.all()
-    return render(request,"course_membership.html",{"membe":memberships,"membership_courses":membership_courses})
+    return render(request,"course_membership.html",{"memberships":memberships,"membership_courses":membership_courses})
