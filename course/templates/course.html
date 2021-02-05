@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>course list</title>
+</head>
+<body>
+<div>
+    <h3>COURSE LIST</h3>
+</div>
+{% if courses %}
+    {% for course in courses %}
+        {{forloop.counter}}
+        <a href="{{course.id}}/">{{course}}</a><br>
+    {% endfor %}
+{% else %}
+    NO COURSES THERE
+{% endif%}
+
+</body>
+</html>

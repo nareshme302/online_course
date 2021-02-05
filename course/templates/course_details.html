@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>course_details</title>
+</head>
+<body>
+COURSE TITLE : {{course.title}}<br>
+<div>
+    {% for t in type %}
+        COURSE TYPE : {{t}}<br>
+    {% endfor %}
+    </div>
+COURSE DESCRIPTION : {{course.description}}<br>
+LESSONS :<br>
+{% if lessons %}
+    {% for lesson in lessons %}
+    {{ forloop.counter }}
+    <a href="{{lesson.id}}/">{{lesson.title}}</a><br>
+    {% endfor %}
+{% else %}
+    NO LESSONS THERE
+{% endif %}
+</body>
+</html>
