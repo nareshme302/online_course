@@ -8,6 +8,10 @@
 COURSE NAME : {{lesson.course}}<br>
 LESSON : {{lesson.title}}<br>
 UPLOAD DATE:{{lesson.date}}<br>
-VIDEO :<br><a href="{{lesson.video.url}}"><img src="{{ lesson.image.url }}" style="height:200px"></a>
-</body>
+VIDEO :<br>
+<video width="400" controls>
+  <source src="/media/{{lesson.video}}" type="video/mp4">
+  Your browser does not support HTML video.
+</video>
+<body/>
 </html>

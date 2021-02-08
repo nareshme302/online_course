@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>log_in</title>
 </head>
 <body>
-$END$
+<form action="." method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" name="save" value="save"/>
+</form><br>
+<a href="/signin/">signin</a>
+
 </body>
 </html>

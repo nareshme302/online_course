@@ -1,21 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<meta name="viewport" content="width=device-width, initial-scale=2">
+<style>
+* {
+  box-sizing: border-box;
+}
+.column {
+  float: left;
+  width: 50.33%;
+  padding: 0px;
+  height: 200px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
 </head>
 <body>
-<table style="width:100%">
-  <tr>
-    <th>FREE</th>
-    <th>PRO</th>
-    <th>ENTERPRISE</th>
-  </tr><div>
-  {% for course in membership_courses %}
-    <tr>
-      <td>{{course}}</td>
-      {% endfor %}</div>
-</table>
-
-</body>
-</html>
+<div class="container">
+	<h2>Select a membership</h2>
+	<div class="row">
+		<div class="column">
+			<div class="column">
+				{% for object in memberships %}
+				<h2>{{ object }}</h2>
+				<p>Price: {{ object.price }}<small>/month</small></p>
+				<h4>COURSE LIST</h4>
+					<ol>
+						{% for course in object.course_set.all %}
+							<p><li><a href="/course/{{course.id}}/">{{ course.title }}</a></li></p>
+						{% endfor %}
+					</ol>
+				<button>Enter</button>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
